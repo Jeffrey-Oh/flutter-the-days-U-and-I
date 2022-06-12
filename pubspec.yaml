@@ -61,23 +61,15 @@ flutter:
     - assets/img/
 
   fonts:
-    - family: gamjaFlower
+    - family: parisienne
       fonts:
-        - asset: assets/fonts/gamjaFlower/GamjaFlower-Regular.ttf
+        - asset: assets/fonts/parisienne/Parisienne-Regular.ttf
 
-    - family: nanumGothicCoding
+    - family: sunflower
       fonts:
-        - asset: assets/fonts/nanumGothicCoding/NanumGothicCoding-Bold.ttf
-        - asset: assets/fonts/nanumGothicCoding/NanumGothicCoding-Regular.ttf
-
-    - family: notoSansKR
-      fonts:
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Black.otf
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Bold.otf
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Light.otf
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Medium.otf
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Regular.otf
-        - asset: assets/fonts/notoSansKR/NotoSansKR-Thin.otf
+        - asset: assets/fonts/sunflower/Sunflower-Bold.ttf
+        - asset: assets/fonts/sunflower/Sunflower-Light.ttf
+        - asset: assets/fonts/sunflower/Sunflower-Medium.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
