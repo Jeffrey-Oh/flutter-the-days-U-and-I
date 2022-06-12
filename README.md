@@ -3,7 +3,7 @@
 인프런 플러터 강의
  - 만난지 며칠 U&I
 
- - [ ] Asset 추가하기
+ - [x] Asset 추가하기
  - [ ] TextStyle 설정하기
  - [ ] 디자인 마무리
  - [ ] DatePicker 사용하기
