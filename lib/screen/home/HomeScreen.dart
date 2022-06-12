@@ -29,13 +29,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _TopWidget extends StatelessWidget {
-  DateTime? myLove = DateTime.now();
-
+class _TopWidget extends StatefulWidget {
   _TopWidget({Key? key}) : super(key: key);
 
   @override
+  State<_TopWidget> createState() => _TopWidgetState();
+}
+
+class _TopWidgetState extends State<_TopWidget> {
+  DateTime selectedDate =
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
+
+  @override
   Widget build(BuildContext context) {
+    final now = DateTime.now();
+
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,7 +64,7 @@ class _TopWidget extends StatelessWidget {
                     color: Colors.white, fontFamily: 'sunflower', fontSize: 30),
               ),
               Text(
-                '${myLove!.year}-${myLove!.month}-${myLove!.day}',
+                '${selectedDate.year}.${selectedDate.month}.${selectedDate.day}',
                 style: TextStyle(
                     color: Colors.white, fontFamily: 'sunflower', fontSize: 20),
               ),
@@ -77,8 +85,16 @@ class _TopWidget extends StatelessWidget {
                       height: 300,
                       child: CupertinoDatePicker(
                         mode: CupertinoDatePickerMode.date,
+                        initialDateTime: selectedDate,
+                        maximumDate: DateTime(
+                          now.year,
+                          now.month,
+                          now.day
+                        ),
                         onDateTimeChanged: (DateTime date) {
-                          myLove = date;
+                          setState(() {
+                            selectedDate = date;
+                          });
                         },
                       ),
                     ),
@@ -92,7 +108,7 @@ class _TopWidget extends StatelessWidget {
             ),
           ),
           Text(
-            'D+1',
+            'D+${DateTime(now.year, now.month, now.day).difference(selectedDate).inDays + 1}',
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'sunflower',
