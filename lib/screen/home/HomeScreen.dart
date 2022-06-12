@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class _TopWidget extends StatelessWidget {
-  const _TopWidget({Key? key}) : super(key: key);
+  DateTime? myLove = DateTime.now();
+
+  _TopWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,7 @@ class _TopWidget extends StatelessWidget {
                     color: Colors.white, fontFamily: 'sunflower', fontSize: 30),
               ),
               Text(
-                '2021-11-18',
+                '${myLove!.year}-${myLove!.month}-${myLove!.day}',
                 style: TextStyle(
                     color: Colors.white, fontFamily: 'sunflower', fontSize: 20),
               ),
@@ -61,7 +64,28 @@ class _TopWidget extends StatelessWidget {
           ),
           IconButton(
             iconSize: 60,
-            onPressed: () {},
+            onPressed: () {
+              // dialog
+              showCupertinoDialog(
+                context: context,
+                barrierDismissible: true, // CupertinoDialog 밖의 영역을 터치 시 닫힘
+                builder: (BuildContext context) {
+                  return Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      color: Colors.white,
+                      height: 300,
+                      child: CupertinoDatePicker(
+                        mode: CupertinoDatePickerMode.date,
+                        onDateTimeChanged: (DateTime date) {
+                          myLove = date;
+                        },
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
             icon: Icon(
               Icons.favorite,
               color: Colors.red,
